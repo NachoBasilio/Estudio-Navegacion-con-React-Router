@@ -1,25 +1,24 @@
+import { HashRouter, Route, Routes } from 'react-router-dom'
+import { BlogPage } from './BlogPage';
+import { HomePage } from './HomePage';
+import { Menu } from './Menu';
+import { ProfilePage } from './ProfilePage';
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <HashRouter>
+        <Menu/>
+        <Routes>//Esta parte va a ser dinamica, osea que va a cambiar dependiendo de la ruta en la que estemos
+          <Route path="/" element={<HomePage/>}/>
+          <Route path="/blog" element={<BlogPage/>}/>
+          <Route path="/profile" element={<ProfilePage/>}/>
+          <Route path="/*" element={<p>Not found</p>}/>//Cuando ponemos un asterisco (*) nos referimos a que sea el valor por defecto si las rutas de arriba no se cumple.
+
+        </Routes>
+      </HashRouter>
+    </>
   );
 }
 
