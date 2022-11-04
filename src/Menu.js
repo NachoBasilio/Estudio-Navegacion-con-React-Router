@@ -17,6 +17,16 @@ routes.push({
   text: 'Profile',
 
 })
+routes.push({
+  to: '/login',
+  text: 'Login',
+
+})
+routes.push({
+  to: '/logout',
+  text: 'Logout',
+
+})
 
 export function Menu() {
   return (
@@ -35,20 +45,6 @@ export function Menu() {
             </NavLink>
           </li>
         ))}
-
-        {/* <li>
-           <Link to="/">Home</Link>
-          <Link to="/blog">Blog</Link>
-          <Link to="/profile">Profile</Link> 
-
-           <NavLink 
-            style={({isActive})=>({
-              color: isActive ? 'red' : 'blue'
-            })}
-          to="/">Home</NavLink>
-          <NavLink to="/blog">Blog</NavLink>
-          <NavLink to="/profile">Profile</NavLink>
-        </li>  */}
       </ul>
     </nav>
   )
