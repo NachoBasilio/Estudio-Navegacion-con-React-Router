@@ -25,7 +25,6 @@ routes.push({
 routes.push({
   to: '/logout',
   text: 'Logout',
-
 })
 
 export function Menu() {
