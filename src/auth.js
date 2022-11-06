@@ -4,8 +4,18 @@ import React from 'react'
 const AuthContext = React.createContext()
 
 function AuthProvider({children}){
+    const [user, setUser] = React.useState(null)
 
-    const auth = {}
+    const login = (username) =>{
+        setUser({username})
+    }
+
+    const logout = () =>{
+        setUser(null)
+    }
+
+    const auth = {user, login, logout}
+
 
     return(
         <AuthContext.Provider value={auth}>

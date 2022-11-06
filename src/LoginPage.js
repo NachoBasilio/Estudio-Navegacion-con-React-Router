@@ -1,11 +1,13 @@
 import React from 'react'
+import { useAuth } from './auth'
 
 export function LoginPage() {
+  const auth = useAuth()
   const [username, setUsername] = React.useState("")
 
   const login = (e) => {
     e.preventDefault()
-    console.log(username)
+    auth.login({username})
   }
 
   return (
