@@ -1,10 +1,14 @@
 import React from 'react'
+import {useAuth} from './auth'
 
 export function LogoutPage() {
+  const auth = useAuth()
+
   const logout = (e) => {
     e.preventDefault()
-    console.log('salimo')
+    auth.logout()
   }
+
   return (
     <>
     <h1>Logout</h1>
