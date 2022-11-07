@@ -7,7 +7,7 @@ import React from 'react'
 import {BlogPost} from './BlogPost';
 import {LoginPage} from './LoginPage';
 import {LogoutPage} from './LogoutPage';
-import {AuthProvider, useAuth} from './auth'
+import {AuthProvider, useAuth, AuthRoute} from './auth'
 
 function App() {
   return (
@@ -23,8 +23,18 @@ function App() {
               </Route>
 
             <Route path='/login' element={<LoginPage/>}/>
-            <Route path='/logout' element={<LogoutPage/>}/>
-            <Route path='/profile' element={<ProfilePage/>}/>
+            <Route path='/logout' 
+            element={
+              <AuthRoute>
+                <LogoutPage/>
+              </AuthRoute>
+              }/>
+            <Route path='/profile' 
+            element={
+              <AuthRoute>
+                <ProfilePage/>
+              </AuthRoute>
+              }/>
             <Route path='/*' element={<p>Not found</p>}/>//Cuando ponemos un asterisco (*) nos referimos a que sea el valor por defecto si las rutas de arriba no se cumple.
 
           </Routes>
